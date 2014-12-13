@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'angularFileUpload'])
+var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'angularFileUpload'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -49,35 +49,31 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'starte
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.dpps', {
+      url: '/dpps',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-dpps': {
+          templateUrl: 'templates/tab-dpps.html',
+          controller: 'dppController'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+    .state('tab.view', {
+      url: '/view/{dppId}',
+       views: {
+        'tab-dpps': {
+          templateUrl: 'templates/dpp-details.html'
         }
       }
+      
     })
-
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
-        }
-      }
+    .state('tab.dpps.view', {
+      url: '/view/{dppId}',
+      templateUrl: 'templates/dpp-details.html',
+       controller: 'dppController'
+      
     });
-
+    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 

@@ -1,7 +1,7 @@
 
 starter.controller('uploadQuestionController', ['$scope', 'FileUploader', function($scope, FileUploader) {
 var uploader = $scope.uploader = new FileUploader({
-                 url: '/marketplace/user/uploaddp'
+                 url: '/marketplace/dpp/uploadDpp'
               });
         // FILTERS
         uploader.filters.push({
@@ -13,6 +13,7 @@ var uploader = $scope.uploader = new FileUploader({
         uploader.data = {'name':'','subject':'Math', 'concept': 'trigonometry' };
 
         $scope.uploader.onBeforeUploadItem = function onBeforeUploadItem(item) {
+             // alert('coming here ' + item);
               item.formData.push({your: 'data'});
               console.log(item);
         }
