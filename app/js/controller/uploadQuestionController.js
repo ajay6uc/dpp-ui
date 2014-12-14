@@ -1,40 +1,26 @@
 
-starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParams', 'FileUploader', function($scope, $state, $stateParams, FileUploader) {
-
-        var url = 'http://192.168.1.2/marketplace/dpp/uploadDpp';
-
-        if($state.current.name === "tab.uploadSolution"){
-          url = 'http://192.168.1.2/marketplace/dppSolution/uploadDppSolution';
-        } 
-
+starter.controller('uploadQuestionController', ['$state', '$stateParams','$scope', 'FileUploader', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
-                 'url': url
+                 url: 'marketplace/user/uploaddp'
               });
-        // FILTERS
-        uploader.data = {'name':'','subject':'Math', 'concept': 'trigonometry', dppId : $stateParams.dppId};
+      
+        uploader.data = {'name':'','subject':'Math', 'concept': 'trigonometry'};
 
-        if($state.current.name === "tab.uploadSolution"){
-          var dppId=$stateParams.dppId;
-          uploader.data.dppId = dppId;
-        }  
-        
+
+         if($state.current.name === "tab.uploadSolution"){
+                var dppId=$stateParams.dppId;
+                uploader.data.dppId = dppId;
+         }
+
+        // FILTERS
         uploader.filters.push({
                 name: 'customFilter',
                 fn: function(item /*{File|FileLikeObject}*/, options) {
                 return this.queue.length < 10;
                 }
         });
-      
-
-        $scope.uploader.onBeforeUploadItem = function onBeforeUploadItem(item) {
-             // alert('coming here ' + item);
-              item.formData.push({your: 'data'});
-              console.log(item);
-        }
-
-      
-
-        // CALLBACKS
+    
+              // CALLBACKS
         uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
           console.info('onWhenAddingFileFailed', item, filter, options);
         };
@@ -48,7 +34,7 @@ starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParam
           item.formData.push({'name' : uploader.data.name});
           item.formData.push({'subject' :  uploader.data.subject});
           item.formData.push({'concept' : uploader.data.concept});
-           item.formData.push({'dppId' : uploader.data.dppId});
+          tem.formData.push({'dppId' : uploader.data.dppId});
           console.info('onBeforeUploadItem', item);
         };
         uploader.onProgressItem = function(fileItem, progress) {

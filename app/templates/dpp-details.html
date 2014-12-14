@@ -1,0 +1,23 @@
+<ion-view title="">
+    <ion-nav-buttons side="middle">
+      <button class="button" ui-sref="tab.viewSolution({dppId : dpp.dppToBeViwed.id})">
+        View Solution
+      </button>
+    </ion-nav-buttons>		
+  <ion-nav-buttons side="right">
+      <button class="button" ui-sref="tab.uploadSolution({dppId : dpp.dppToBeViwed.id})">
+        Upload Solution
+      </button>
+    </ion-nav-buttons>
+  <ion-content class="has-header" overflow-scroll="true" scrollbar-y="true"  scrollbar-x="true" direction="xy">
+        <ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px">
+
+
+      <img ng-src="{{dpp.dppToBeViwed.contentUrl}}" alt="some_text"> 
+ 
+ </ion-scroll>
+
+  </ion-content>
+</ion-view>
+
+ 

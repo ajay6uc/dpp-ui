@@ -62,17 +62,47 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
       url: '/view/{dppId}',
        views: {
         'tab-dpps': {
-          templateUrl: 'templates/dpp-details.html'
+          templateUrl: 'templates/dpp-details.html',
+           controller: 'dppController'
+        }
+      }
+      
+    })
+    .state('tab.viewSolution', {
+      url: '/viewSolution/{dppId}',
+       views: {
+        'tab-dpps': {
+          templateUrl: 'templates/dpp-view-solution.html',
+           controller: 'dppController'
+        }
+      }
+      
+    })
+    .state('tab.uploadSolution', {
+      url: '/uploadSolution/{dppId}',
+       views: {
+        'tab-dpps': {
+          templateUrl: 'templates/dpp-upload-solution.html',
+           controller: 'uploadQuestionController'
         }
       }
       
     })
     .state('tab.dpps.view', {
       url: '/view/{dppId}',
+      views: {
+        'tab-dpps': {
+          templateUrl: 'templates/dpp-details.html'
+        }
+      }
+    })
+    .state('tab.dpps.view.upload', {
+      url: '/upload',
       templateUrl: 'templates/dpp-details.html',
        controller: 'dppController'
       
-    });
+    })
+    ;
     
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

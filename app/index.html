@@ -22,11 +22,7 @@
     <script src="js/angular/angular-sanitize.js"></script>
     <script src="js/angular-ui/angular-ui-router.js"></script>
     
-
-    <script src="js/firebase.js"></script>
-    <script src="js/angularfire.min.js"></script>
-
-     <!-- ng cordova js -->
+   <!-- ng cordova js -->
     <script src="lib/ngcordova/ng-cordova.min.js"></script>
 
     <!-- cordova script -->
@@ -40,11 +36,16 @@
     <script type="text/javascript"  src="js/uploadQuestionController.js"></script>
     <script type="text/javascript"  src="js/controller/dppController.js"></script>
     <script type="text/javascript"  src="js/service/dppService.js"></script>
+    <script type="text/javascript"  src="js/service/dppSolutionService.js"></script>
    
 
 
 
   </head>
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+      <ion-nav-back-button class="button-icon icon on-ios7-arrow-back button-clear">
+      </ion-nav-back-button>
+    </ion-nav-bar>
 
  <body ng-app="starter" >
     <pane nav-router animation="slide-left-right-ios7">
@@ -56,17 +57,13 @@
      <!--                                                                                                                         
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
-      <ion-nav-back-button class="button-icon icon  ion-ios7-arrow-back">
-        Back
-      </ion-nav-back-button>
-    </ion-nav-bar>
+    
     <!-- 
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
     </pane>
   </body>
 </html>
