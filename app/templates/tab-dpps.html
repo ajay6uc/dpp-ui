@@ -1,7 +1,7 @@
 <ion-view title="Daily Problems">
 
   <ion-content>
-    <ion-list animation="slide-left-right">
+     <ion-list animation="slide-left-right">
       <ion-item ng-repeat="dppItem in dpp.dppList" type="item-text-wrap" ui-sref="tab.view({dppId : dppItem.id})">
         {{dppItem.name}},   {{dppItem.createdDate}} 
       </ion-item>

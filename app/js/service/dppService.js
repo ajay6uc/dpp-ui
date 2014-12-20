@@ -1,7 +1,7 @@
 starter.service("dppService", function($resource) {
 
 
-	var Dpp =  $resource('http://192.168.1.2/marketplace/dpp/:DppId', {'name':'@name', 'concept':'@concept', 'DppName':'@DppName'},
+	var Dpp =  $resource('marketplace/dpp/:DppId', {'name':'@name', 'concept':'@concept', 'DppName':'@DppName'},
 
 			{
         		'update': { method:'PUT' },

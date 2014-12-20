@@ -1,10 +1,10 @@
 
-starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParams', 'FileUploader', function($scope, $state, $stateParams, FileUploader) {
+starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParams', 'FileUploader', '$cordovaDialogs',  function($scope, $state, $stateParams, FileUploader, $cordovaDialogs) {
 
-        var url = 'http://192.168.1.2/marketplace/dpp/uploadDpp';
+        var url = 'marketplace/dpp/uploadDpp';
 
         if($state.current.name === "tab.uploadSolution"){
-          url = 'http://192.168.1.2/marketplace/dppSolution/uploadDppSolution';
+          url = 'marketplace/dppSolution/uploadDppSolution';
         } 
 
         var uploader = $scope.uploader = new FileUploader({
@@ -45,10 +45,17 @@ starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParam
           console.info('onAfterAddingAll', addedFileItems);
         };
         uploader.onBeforeUploadItem = function(item) {
+
+
+          // $cordovaDialogs.confirm('Are you sure to upload from upload', 'upload', ['Ok','Cancel']).then(function(buttonIndex) {
+          //     // no button = 0, 'OK' = 1, 'Cancel' = 2
+          //      var btnIndex = buttonIndex;
+          //      alert('button index is ' + btnIndex);
+          // });
           item.formData.push({'name' : uploader.data.name});
           item.formData.push({'subject' :  uploader.data.subject});
           item.formData.push({'concept' : uploader.data.concept});
-           item.formData.push({'dppId' : uploader.data.dppId});
+          item.formData.push({'dppId' : uploader.data.dppId});
           console.info('onBeforeUploadItem', item);
         };
         uploader.onProgressItem = function(fileItem, progress) {

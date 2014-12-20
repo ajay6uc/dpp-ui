@@ -1,8 +1,17 @@
 
-starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 'dppSolutionService', '$state', '$stateParams', function($sce, $filter, $scope, dppService, dppSolutionService, $state, $stateParams){
+starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 'dppSolutionService', '$state', '$stateParams', '$cordovaDialogs',  function($sce, $filter, $scope, dppService, dppSolutionService, $state, $stateParams, $cordovaDialogs){
 
   
   $scope.dpp = {};
+  //  $cordovaDialogs.confirm('Are you sure to upload', 'upload', ['Ok','Cancel']).then(function(buttonIndex) {
+  //           // no button = 0, 'OK' = 1, 'Cancel' = 2
+  //            var btnIndex = buttonIndex;
+  //            alert('button index is ' + btnIndex);
+  //        })
+  
+  // $scope.dpp.phoneNumber = starter.phoneNumber;
+   //alert('dppphone number' +$scope.dpp.phoneNumber);
+  //$scope.dpp.error.phoneNumber = starter.error.phoneNumber;
   //alert('coming here');
   $scope.dpp.getDppList = function(){
       dppService.getDppList().$promise.then(function(dppList) {

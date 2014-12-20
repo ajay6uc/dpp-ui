@@ -5,19 +5,39 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'angularFileUpload'])
+var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'angularFileUpload', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaDialogs) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      //alert("keyboad plugin ");
+    }
+    if(window.cordova && window.cordova.plugins.Telephonenumber) {
+      //cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      alert("telephonenumber plugin " + device.uuid);
+    }
+     if(window.cordova && window.cordova.plugins.Notification) {
+      //cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      alert("Notification plugin ");
     }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
+
       StatusBar.styleDefault();
     }
+    //alert("Starting app ");
+	var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
+      //alert("telephonenumber  " + telephoneNumber);
+        telephoneNumber.get(function(result) {
+        //alert("result is = " + result);
+          starter.phoneNumber = result;
+        }, function(error) {
+        //alert("error = " + error.code);
+          starter.error.phoneNumber = result;
+        });
     
   });
 })
