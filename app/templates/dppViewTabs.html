@@ -1,0 +1,20 @@
+<!-- 
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top">
+
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="Paper Solution"  ui-sref="dpp.soluton">
+    <ion-nav-view name="dpp-view"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="Solution Video"  ui-sref="dpp.viewVideoSolution">
+    <ion-nav-view name="dpp-video-solution"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>
