@@ -7,13 +7,18 @@
 
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Paper Solution"  ui-sref="dpp.soluton">
+  <ion-tab title="View Dpp"  ui-sref="dpp.view({dppId : dppItem.id})">
     <ion-nav-view name="dpp-view"></ion-nav-view>
+  </ion-tab>
+
+    <!-- Dashboard Tab -->
+  <ion-tab title="Paper Solution"  ui-sref="dpp.solution.paper">
+    <ion-nav-view name="dpp-video-solution"></ion-nav-view>
   </ion-tab>
 
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Solution Video"  ui-sref="dpp.viewVideoSolution">
+  <ion-tab title="Solution Video"  ui-sref="dpp.solution">
     <ion-nav-view name="dpp-video-solution"></ion-nav-view>
   </ion-tab>
 

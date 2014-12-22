@@ -2,7 +2,7 @@
 
   <ion-content>
      <ion-list animation="slide-left-right">
-      <ion-item ng-repeat="dppItem in dpp.dppList" type="item-text-wrap" ui-sref="tab.view({dppId : dppItem.id})">
+      <ion-item ng-repeat="dppItem in dpp.dppList" type="item-text-wrap" ui-sref="dpp.view({dppId : dppItem.id})">
         {{dppItem.name}},   {{dppItem.createdDate}} 
       </ion-item>
     </ion-list>

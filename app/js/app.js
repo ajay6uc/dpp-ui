@@ -63,8 +63,8 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
       url: '/dash',
       views: {
         'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'uploadQuestionController'
+          templateUrl: 'templates/tab-dpps.html',
+          controller: 'dppController'
         }
       }
     })
@@ -83,16 +83,6 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
        views: {
         'tab-dpps': {
           templateUrl: 'templates/dpp-details.html',
-           controller: 'dppController'
-        }
-      }
-      
-    })
-    .state('tab.viewSolution', {
-      url: '/viewSolution/{dppId}',
-       views: {
-        'tab-dpps': {
-          templateUrl: 'templates/dpp-view-solution.html',
            controller: 'dppController'
         }
       }
@@ -122,8 +112,40 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
        controller: 'dppController'
       
     })
+    .state('dpp', {
+      url: "/dpp",
+      abstract: true,
+      
+          templateUrl: 'templates/dppViewTabs.html'
+
+        
+      
+    })
+    .state('dpp.view', {
+      url: '/view/{dppId}',
+      views: {
+        'dpp-view': {
+          templateUrl: 'templates/dpp-details.html',
+           controller: 'dppController'
+        }
+      }
+        
+      })
+    .state('dpp.solution', {
+      url: '/solution/{dppId}',
+       views: {
+        'dpp-video-solution': {
+          templateUrl: 'templates/dpp-view-solution.html',
+           controller: 'dppController'
+        }
+      }
+      
+    })
+
     ;
-    
+
+    // Each tab has its own nav history stack:
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 

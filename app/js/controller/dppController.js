@@ -1,7 +1,7 @@
 
 starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 'dppSolutionService', '$state', '$stateParams', '$cordovaDialogs',  function($sce, $filter, $scope, dppService, dppSolutionService, $state, $stateParams, $cordovaDialogs){
 
-  
+  //alert('coming ehre');
   $scope.dpp = {};
   //  $cordovaDialogs.confirm('Are you sure to upload', 'upload', ['Ok','Cancel']).then(function(buttonIndex) {
   //           // no button = 0, 'OK' = 1, 'Cancel' = 2
@@ -57,12 +57,21 @@ starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 
       );
   };
  
-  if($state.current.name === "tab.dpps"){
+  if($state.current.name === "tab.dash"){
     $scope.dpp.getDppList();
   }
 
-  if($state.current.name === "tab.viewSolution"){
+  if($state.current.name === "dpp.view"){
+    var dppId=$stateParams.dppId;
+    $scope.dpp.dppToBeViwed = $filter('filter')(dppService.dppList, {'id': dppId})[0];
+    dppSolutionService.dppToBeViwed = $scope.dpp.dppToBeViwed ;
+  }
+   if($state.current.name === "dpp"){
      var dppId=$stateParams.dppId;
+    $scope.dpp.dppToBeViwed = $filter('filter')(dppService.dppList, {'id': dppId})[0];
+  }
+  if($state.current.name === "dpp.solution"){
+     var dppId=dppSolutionService.dppToBeViwed.id;
      $scope.dpp.findDppSolution({'dpp.id' : dppId});
   }
 
