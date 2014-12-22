@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'angularFileUpload', 'ngCordova'])
-
+.constant('REST_URL','http://192.168.1.2/')
 .run(function($ionicPlatform, $cordovaDialogs) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -58,6 +58,15 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
     })
 
     // Each tab has its own nav history stack:
+    .state('tab.default', {
+      url: '/default',
+      views: {
+        'tab-default': {
+          templateUrl: 'templates/main-dpp.html',
+          controller: 'dppController'
+        }
+      }
+    })
 
     .state('tab.dash', {
       url: '/dash',
@@ -134,7 +143,7 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
     .state('dpp.solution', {
       url: '/solution/{dppId}',
        views: {
-        'dpp-video-solution': {
+        'dpp-paper-solution': {
           templateUrl: 'templates/dpp-view-solution.html',
            controller: 'dppController'
         }
@@ -147,7 +156,7 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
     // Each tab has its own nav history stack:
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/default');
 
 });
 

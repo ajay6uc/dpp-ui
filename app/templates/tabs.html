@@ -5,12 +5,15 @@
 -->
 
 
-
-<ion-tabs class="tabs-icon-top">
+<ion-tabs  class="tabs-icon-top" >
+   <!-- Dashboard Tab -->
+  <ion-tab title="My Dpp1" hidden="true" href="#/tab/default"  >
+    <ion-nav-view name="tab-default"></ion-nav-view>
+  </ion-tab>
 
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Math"  ui-sref="tab.dash">
+  <ion-tab title="Math"  ui-sref="tab.dash" >
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
@@ -20,6 +23,11 @@
     <ion-nav-view name="tab-dpps"></ion-nav-view>
   </ion-tab>
 
+  
+<!-- Dpps Tab -->
+  <ion-tab title="Chemistry"   ui-sref="tab.dpps" >
+    <ion-nav-view name="tab-dpps"></ion-nav-view>
+  </ion-tab>
 
 
 </ion-tabs>

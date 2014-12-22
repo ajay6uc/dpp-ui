@@ -57,13 +57,14 @@ starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 
       );
   };
  
-  if($state.current.name === "tab.dash"){
+  if($state.current.name === "tab.dash" || $state.current.name === "tab.dpps"){
     $scope.dpp.getDppList();
   }
 
   if($state.current.name === "dpp.view"){
     var dppId=$stateParams.dppId;
     $scope.dpp.dppToBeViwed = $filter('filter')(dppService.dppList, {'id': dppId})[0];
+
     dppSolutionService.dppToBeViwed = $scope.dpp.dppToBeViwed ;
   }
    if($state.current.name === "dpp"){
@@ -72,6 +73,7 @@ starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 
   }
   if($state.current.name === "dpp.solution"){
      var dppId=dppSolutionService.dppToBeViwed.id;
+
      $scope.dpp.findDppSolution({'dpp.id' : dppId});
   }
 

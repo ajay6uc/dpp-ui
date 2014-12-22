@@ -1,13 +1,13 @@
-starter.service("dppSolutionService", function($resource) {
+starter.service("dppSolutionService",  function($resource, REST_URL) {
 
 
-	var DppSolution =  $resource('marketplace/dppSolution/:DppSolutionId', {'name':'@name', 'dpp.id':'@dppId', 'DppName':'@DppName'},
+	var DppSolution =  $resource(REST_URL+'marketplace/dppSolution/:DppSolutionId', {'name':'@name', 'dpp.id':'@dppId', 'DppName':'@DppName'},
 
 			{
         		'update': { method:'PUT' },
         		'create': { method:'POST' },
         		'find': { method:'GET', 
-        				  url : 'marketplace/dppSolution/find',
+        				  url : REST_URL+'marketplace/dppSolution/find',
             			  isArray : true
         				}
 

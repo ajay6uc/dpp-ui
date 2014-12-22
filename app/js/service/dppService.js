@@ -1,7 +1,7 @@
-starter.service("dppService", function($resource) {
+starter.service("dppService",  function($resource, REST_URL) {
 
 
-	var Dpp =  $resource('marketplace/dpp/:DppId', {'name':'@name', 'concept':'@concept', 'DppName':'@DppName'},
+	var Dpp =  $resource(REST_URL+'marketplace/dpp/:DppId', {'name':'@name', 'concept':'@concept', 'DppName':'@DppName'},
 
 			{
         		'update': { method:'PUT' },
