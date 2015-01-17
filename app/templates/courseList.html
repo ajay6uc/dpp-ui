@@ -1,0 +1,37 @@
+<ion-view title="">
+    
+  <ion-content class="has-header" overflow-scroll="true" scrollbar-y="true"  scrollbar-x="true" direction="xy">
+       <ion-list ng-controller="MyCtrl"
+          show-delete="shouldShowDelete"
+          show-reorder="shouldShowReorder"
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="course in course.topics"
+            class="item-thumbnail-left">
+
+    <img ng-src="{{course.img}}">
+    <h2>{{course.name}}</h2>
+    <p>{{course.description}}</p>
+    <ion-option-button class="button-positive"
+                       ng-click="share(course)">
+      Share
+    </ion-option-button>
+    <ion-option-button class="button-info"
+                       ng-click="edit(course)">
+      Edit
+    </ion-option-button>
+    <ion-delete-button class="ion-minus-circled"
+                       ng-click="topics.splice($index, 1)">
+    </ion-delete-button>
+    <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(course, $fromIndex, $toIndex)">
+    </ion-reorder-button>
+
+  </ion-item>
+</ion-list>
+
+ 
+ </ion-scroll>
+  
+  </ion-content>
+</ion-view>
+<div ui-view></div>

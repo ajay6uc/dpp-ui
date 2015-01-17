@@ -1,0 +1,25 @@
+  	 
+
+<ion-view title="Concepts">
+
+    <ion-content>
+    <!-- <div class="list card">
+      
+          <a  ng-repeat="concept in courseconcept.conceptList"
+                    class="item item-icon-left" href="">
+
+            <span><h2>{{concept.name}} hi ajay how rru</h2><a href="ajay">Reorder</a></span>
+          </a>
+
+    </div>-->
+ 
+    <ion-list animation="slide-left-right">
+      <ion-item class="card item-icon-left"  ng-repeat="concept in courseConcept.conceptList" type="item-text-wrap" ui-sref="tab.conceptView({conceptId : concept.id})">
+        {{concept.name}} 
+      </ion-item>
+    </ion-list>
+ 
+  
+  </ion-content>
+</ion-view>
+ 

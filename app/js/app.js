@@ -5,8 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngResource', 'angularFileUpload', 'ngCordova'])
-.constant('REST_URL','http://192.168.1.2/')
+var starter = angular.module('starter', ['ionic',   'starter.controllers', 'ngResource', 'angularFileUpload', 'ngCordova'])
+.constant('REST_URL','')
 .run(function($ionicPlatform, $cordovaDialogs) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,7 +17,7 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
     }
     if(window.cordova && window.cordova.plugins.Telephonenumber) {
       //cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      alert("telephonenumber plugin " + device.uuid);
+      //alert("telephonenumber plugin " + device.uuid);
     }
      if(window.cordova && window.cordova.plugins.Notification) {
       //cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -62,8 +62,8 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
       url: '/default',
       views: {
         'tab-default': {
-          templateUrl: 'templates/main-dpp.html',
-          controller: 'dppController'
+          templateUrl: 'templates/tab-dash.html',
+          controller: 'uploadQuestionController'
         }
       }
     })
@@ -77,16 +77,52 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
         }
       }
     })
-
-    .state('tab.dpps', {
-      url: '/dpps',
+     .state('tab.topics', {
+      url: '/topics',
       views: {
-        'tab-dpps': {
-          templateUrl: 'templates/tab-dpps.html',
-          controller: 'dppController'
+        'tab-topics@tab': {
+          templateUrl: 'templates/topicList.html',
+          controller: 'topicController'
         }
       }
     })
+    .state('tab.concepts', {
+        url: '/concepts',
+        views: {
+        'tab-topics@tab': {
+          templateUrl: 'templates/concepts.html',
+          controller: 'conceptController'
+        }
+      }
+        
+      
+    })
+    .state('tab.conceptView', {
+        url: '/conceptView',
+         views: {
+          'tab-topics@tab': {
+          templateUrl: 'templates/conceptView.html',
+          controller: 'conceptController'
+        }
+      }
+    })
+     .state('question', {
+      url: "/question",
+      abstract: true,
+          templateUrl: 'templates/question.html'
+    })
+    .state('question.practice', {
+        url: '/practice',
+        templateUrl: 'templates/practice.html',
+        controller: 'questionController'
+      }
+    )
+    .state('question.test', {
+        url: '/test',
+        templateUrl: 'templates/test.html',
+        controller: 'questionController'
+      }
+    )
     .state('tab.view', {
       url: '/view/{dppId}',
        views: {
@@ -126,9 +162,6 @@ var starter = angular.module('starter', ['ionic', 'starter.controllers', 'ngReso
       abstract: true,
       
           templateUrl: 'templates/dppViewTabs.html'
-
-        
-      
     })
     .state('dpp.view', {
       url: '/view/{dppId}',

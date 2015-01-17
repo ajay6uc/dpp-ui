@@ -1,0 +1,26 @@
+<ion-nav-bar class="bar-positive nav-title-slide-ios7">
+	 <a class="ion-arrow-left-c button-clear" ng-click="courseQuestion.goBack()">Back</a>	
+</ion-nav-bar> 
+  
+<ion-view title="Questions">
+    
+  <ion-content>
+    <!-- <div class="list card">
+      
+          <a  ng-repeat="question in coursequestion.questionList"
+                    class="item item-icon-left" href="">
+
+            <span><h2>{{question.name}} hi ajay how rru</h2><a href="ajay">Reorder</a></span>
+          </a>
+
+    </div>-->
+    <ion-list animation="slide-left-right">
+      <ion-item class="card item-icon-left"  ng-repeat="question in courseQuestion.questionList" type="item-text-wrap" ui-sref=".questionView({questionId : question.id})">
+        {{question.description}} 
+      </ion-item>
+    </ion-list>
+ 
+  
+  </ion-content>
+</ion-view>
+<ion-nav-view></ion-nav-view>
