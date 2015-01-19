@@ -1,13 +1,20 @@
-<ion-view title="">
+<ion-view title="Test">
     
-  <ion-content class="has-header" overflow-scroll="true" scrollbar-y="true"  scrollbar-x="true" direction="xy">
-        <ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px">
-
-
-      <img ng-src="{{dpp.dppToBeViwed.contentUrl}}" alt="some_text"> 
- 
- </ion-scroll>
+   <ion-nav-buttons side="primary">
+      <button class="button" ng-click="dpp.goBack()">
+        Back
+      </button>
+    </ion-nav-buttons>
   
   </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive">
+  <div class="buttons">
+    <button class="button">Left Button</button>
+  </div>
+  <h1 class="title">Title!</h1>
+  <div class="buttons" ng-click="doSomething()">
+    <button class="button">Right Button</button>
+  </div>
+</ion-footer-bar>
 </ion-view>
 <div ui-view></div>

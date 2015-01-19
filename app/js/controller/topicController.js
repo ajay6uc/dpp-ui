@@ -1,8 +1,19 @@
 
-starter.controller('topicController', ['$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'topicService',  '$state', '$stateParams', '$cordovaDialogs',  function($ionicNavBarDelegate, $sce, $filter, $scope, topicService,  $state, $stateParams, $cordovaDialogs){
+starter.controller('topicController', ['$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'topicService',  '$state', '$stateParams', '$cordovaDialogs', 'appService',  function( $ionicNavBarDelegate, $sce, $filter, $scope, topicService,  $state, $stateParams, $cordovaDialogs, appService){
 
+  $scope.appService = appService;
+       
+  //alert('inside topic ' + appService.app.showTabs);
+ 
+  $scope.appService.app.showTabs = 'tabs-item-hide';
   $scope.courseTopic = {};
-  
+
+
+  $scope.courseTopic.goBack = function(){
+     $state.go('tab.default');
+  };
+    
+       
   $scope.courseTopic.getTopicList = function(){
       topicService.getTopicList().$promise.then(function(topicList) {
         $scope.courseTopic.topicList = topicList;

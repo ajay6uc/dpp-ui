@@ -3,23 +3,17 @@
   Each tab's child <ion-nav-view> directive will have its own 
   navigation history that also transitions its views in and out.
 -->
-<ion-tabs class="tabs-icon-top">
+<ion-tabs class="tabs-icon-top tabs-balanced">
 
+   <!-- Dashboard Tab -->
+  <ion-tab title="" hidden="true" ui-sref="test.default"  >
+    <ion-nav-view name="test-default"></ion-nav-view>
+  </ion-tab>
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Dpp Details"  ui-sref="dpp.view" >
-    <ion-nav-view name="dpp-view"></ion-nav-view>
+  <ion-tab title="My Tests"  ui-sref="test.view" >
+    <ion-nav-view name="Appeared Tests"></ion-nav-view>
   </ion-tab>
 
-    <!-- Dashboard Tab -->
-  <ion-tab title="Paper Solution"  ui-sref="dpp.solution">
-    <ion-nav-view name="dpp-paper-solution"></ion-nav-view>
-  </ion-tab>
-
-
-  <!-- Dashboard Tab -->
-  <ion-tab title="Solution Video"  ui-sref="dpp.video.solution" >
-    <ion-nav-view name="dpp-video-solution"></ion-nav-view>
-  </ion-tab>
 
 </ion-tabs>

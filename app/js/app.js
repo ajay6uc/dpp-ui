@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic',   'starter.controllers', 'ngResource', 'angularFileUpload', 'ngCordova'])
+var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUpload', 'ngCordova'])
 .constant('REST_URL','')
 .run(function($ionicPlatform, $cordovaDialogs) {
   $ionicPlatform.ready(function() {
@@ -54,7 +54,17 @@ var starter = angular.module('starter', ['ionic',   'starter.controllers', 'ngRe
     .state('tab', {
       url: "/tab",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/tabs.html",
+      controller: function($scope, appService, $state) {
+        $scope.appService = appService;
+       if($state.current.name !=="tab.default"){
+          $scope.appService.app.showTabs = 'tabs-item-hide';
+          //alert('Coming here ' + $scope.appService.app.showTabs );
+        }else{
+          $scope.appService.app.showTabs = '';
+        }
+
+     }
     })
 
     // Each tab has its own nav history stack:
@@ -100,7 +110,7 @@ var starter = angular.module('starter', ['ionic',   'starter.controllers', 'ngRe
     .state('tab.conceptView', {
         url: '/conceptView',
          views: {
-          'tab-topics@tab': {
+          'tab-topics': {
           templateUrl: 'templates/conceptView.html',
           controller: 'conceptController'
         }
@@ -157,6 +167,41 @@ var starter = angular.module('starter', ['ionic',   'starter.controllers', 'ngRe
        controller: 'dppController'
       
     })
+    .state('test', {
+      url: "/test",
+      abstract: true,
+      
+          templateUrl: 'templates/testViewTabs.html'
+    })
+    .state('test.default', {
+      url: '/testDefault/{conceptId}',
+      views: {
+        'test-default': {
+          templateUrl: 'templates/test-default.html',
+           controller: 'testController'
+        }
+      }
+        
+      })
+    .state('test.view', {
+      url: '/testView',
+      views: {
+        'test-view': {
+          templateUrl: 'templates/test-view.html',
+           controller: 'testController'
+        }
+      }
+        
+      }).state('test.progress', {
+      url: '/testProgress',
+      views: {
+        'test-progress': {
+          templateUrl: 'templates/test-progress.html',
+           controller: 'testController'
+        }
+      }
+        
+      })
     .state('dpp', {
       url: "/dpp",
       abstract: true,

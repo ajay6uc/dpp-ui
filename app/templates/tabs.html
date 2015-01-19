@@ -4,8 +4,7 @@
   navigation history that also transitions its views in and out.
 -->
 
-
-<ion-tabs  class="tabs-icon-top" >
+<ion-tabs  class="tabs-icon-top tabs-balanced"  ng-class="appService.app.showTabs">
    <!-- Dashboard Tab -->
   <ion-tab title="My Dpp1" hidden="true" href="#/tab/default"  >
     <ion-nav-view name="tab-default"></ion-nav-view>
@@ -13,21 +12,21 @@
 
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Math"  ui-sref="tab.topics" >
+  <ion-tab title="Math"  ui-sref="tab.topics" hidden="appService.app.showTabs">
     <ion-nav-view name="tab-topics"></ion-nav-view>
   </ion-tab>
 
 
-  <!-- Dpps Tab -->
+ <!--  <!-- Dpps Tab 
   <ion-tab title="Physics"   ui-sref="tab.dpps1" >
     <ion-nav-view name="tab-dpps1"></ion-nav-view>
   </ion-tab>
 
   
-<!-- Dpps Tab -->
+<!-- Dpps Tab 
   <ion-tab title="Chemistry"   ui-sref="tab.dpps" >
     <ion-nav-view name="tab-dpps"></ion-nav-view>
   </ion-tab>
 
-
+ -->
 </ion-tabs>
