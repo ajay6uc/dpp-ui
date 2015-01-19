@@ -1,5 +1,5 @@
 
-starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 'dppSolutionService', '$state', '$stateParams', '$cordovaDialogs',  function($sce, $filter, $scope, dppService, dppSolutionService, $state, $stateParams, $cordovaDialogs){
+starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 'dppSolutionService', '$state', '$stateParams', '$cordovaDialogs', '$ionicTabsDelegate',  function($sce, $filter, $scope, dppService, dppSolutionService, $state, $stateParams, $cordovaDialogs, $ionicTabsDelegate){
 
   //alert('coming ehre');
   $scope.dpp = {};
@@ -56,6 +56,12 @@ starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 
         function(){}
       );
   };
+
+
+   $scope.dpp.goBack = function(){
+     $state.go('tab.conceptView');
+  };
+    
  
   if($state.current.name === "tab.dash" || $state.current.name === "tab.dpps"){
     $scope.dpp.getDppList();
@@ -63,7 +69,7 @@ starter.controller('dppController', ['$sce', '$filter', '$scope', 'dppService', 
 
   if($state.current.name === "dpp.view"){
     var dppId=$stateParams.dppId;
-    $scope.dpp.dppToBeViwed = $filter('filter')(dppService.dppList, {'id': dppId})[0];
+   // $scope.dpp.dppToBeViwed = $filter('filter')(dppService.dppList, {'id': dppId})[0];
 
     dppSolutionService.dppToBeViwed = $scope.dpp.dppToBeViwed ;
   }

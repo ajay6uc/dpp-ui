@@ -1,0 +1,13 @@
+
+<ion-view title="My Tests">
+ 
+  <ion-content>
+ 
+   <ion-list animation="slide-left-right">
+      <ion-item class="card item-icon-left"  ng-repeat="test in test.testList" type="item-text-wrap" ui-sref="test.result({testId : test.id})">
+        {{test.name}} 
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
+</ion-view>

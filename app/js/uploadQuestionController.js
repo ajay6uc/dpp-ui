@@ -1,8 +1,9 @@
 
-starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParams', 'FileUploader', '$cordovaDialogs',  function($scope, $state, $stateParams, FileUploader, $cordovaDialogs) {
+starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParams', 'FileUploader', '$cordovaDialogs','appService',   function($scope, $state, $stateParams, FileUploader, $cordovaDialogs, appService) {
 
         var url = 'marketplace/dpp/uploadDpp';
-
+         $scope.appService.app.showTabs = '';
+        
         if($state.current.name === "tab.uploadSolution"){
           url = 'marketplace/dppSolution/uploadDppSolution';
         } 
