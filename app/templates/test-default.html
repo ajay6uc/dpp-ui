@@ -2,16 +2,10 @@
 <ion-view title="Tests">
  
   <ion-content >
-    <ion-nav-buttons animation="slide-left-right">
-      <a class="button icon-left ion-ios7-arrow-left button-clear" ng-click="conceptTest.goBack()"> </a>
-    </ion-nav-buttons>
-  
- 
-   <ion-list animation="slide-left-right">
-      <ion-item class="card item-icon-left"  ng-repeat="test in test.testList" type="item-text-wrap" ui-sref="test.detail({testId : test.id})">
+   
+      <ion-item class="card item-icon-left"   ui-sref="test.view({testId : test.id})">
         {{test.name}} 
       </ion-item>
-    </ion-list>
-  
+   
   </ion-content>
 </ion-view>

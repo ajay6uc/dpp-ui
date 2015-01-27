@@ -1,16 +1,17 @@
 
-starter.controller('topicController', ['$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'topicService',  '$state', '$stateParams', '$cordovaDialogs', 'appService',  function( $ionicNavBarDelegate, $sce, $filter, $scope, topicService,  $state, $stateParams, $cordovaDialogs, appService){
+starter.controller('topicController', ['$rootScope', '$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'topicService',  '$state', '$stateParams', '$cordovaDialogs', 'appService', '$timeout',  function($rootScope, $ionicNavBarDelegate, $sce, $filter, $scope, topicService,  $state, $stateParams, $cordovaDialogs, appService,  $timeout){
 
   $scope.appService = appService;
-       
-  //alert('inside topic ' + appService.app.showTabs);
+  //var isButtonShown = $ionicNavBarDelegate.showBackButton(true);  
+  //alert('inside topic ' + isButtonShown);
+  //$rootScope.$broadcast('$viewHistory.historyChange', {'showBack' : true});
  
   $scope.appService.app.showTabs = 'tabs-item-hide';
   $scope.courseTopic = {};
-
+  $scope.appService.app.showTopics = false; 
 
   $scope.courseTopic.goBack = function(){
-     $state.go('tab.default');
+     $state.go('tab.default', {}, {'reload': true});
   };
     
        

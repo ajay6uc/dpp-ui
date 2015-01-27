@@ -1,7 +1,7 @@
 starter.service("appService",  function($resource, REST_URL) {
 
 
-	this.app = {'showTabs' : ''} 
+	this.app = {'showTabs' : '', 'showTopics' : true} 
 
 
 });

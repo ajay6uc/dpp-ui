@@ -57,14 +57,19 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
       templateUrl: "templates/tabs.html",
       controller: function($scope, appService, $state) {
         $scope.appService = appService;
-       if($state.current.name !=="tab.default"){
-          $scope.appService.app.showTabs = 'tabs-item-hide';
-          //alert('Coming here ' + $scope.appService.app.showTabs );
-        }else{
-          $scope.appService.app.showTabs = '';
-        }
-
-     }
+         if($state.current.name !=="tab.default"){
+            $scope.appService.app.showTabs = 'tabs-item-hide';
+            //alert('Coming here ' + $scope.appService.app.showTabs );
+          }else{
+            $scope.appService.app.showTabs = '';
+          }
+       //$scope.appService.app.showTopics = false; 
+        //$scope.appService.goBack = function(){
+          //alert('Coming here in click' );
+         ///$state.go('tab.topics');
+        
+        $scope.appService.app.title = 'Home';
+      }
     })
 
     // Each tab has its own nav history stack:
@@ -90,7 +95,7 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
      .state('tab.topics', {
       url: '/topics',
       views: {
-        'tab-topics@tab': {
+        'tab-topics': {
           templateUrl: 'templates/topicList.html',
           controller: 'topicController'
         }
@@ -99,7 +104,7 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
     .state('tab.concepts', {
         url: '/concepts',
         views: {
-        'tab-topics@tab': {
+        'tab-topics': {
           templateUrl: 'templates/concepts.html',
           controller: 'conceptController'
         }
@@ -108,10 +113,19 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
       
     })
     .state('tab.conceptView', {
-        url: '/conceptView',
+        url: '/conceptView/{conceptId}',
          views: {
           'tab-topics': {
           templateUrl: 'templates/conceptView.html',
+          controller: 'conceptController'
+        }
+      }
+    })
+    .state('tab.practice', {
+        url: '/practice/{conceptId}',
+         views: {
+          'tab-topics': {
+          templateUrl: 'templates/practice.html',
           controller: 'conceptController'
         }
       }
@@ -170,8 +184,13 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
     .state('test', {
       url: "/test",
       abstract: true,
-      
-          templateUrl: 'templates/testViewTabs.html'
+      templateUrl: 'templates/testViewTabs.html',
+      controller: function($ionicNavBarDelegate, $scope, appService, $state) {
+        $scope.hasBackButton =true;
+        $ionicNavBarDelegate.showBackButton(true);
+       
+     }
+
     })
     .state('test.default', {
       url: '/testDefault/{conceptId}',
@@ -184,7 +203,7 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
         
       })
     .state('test.view', {
-      url: '/testView',
+      url: '/testView/{testId}',
       views: {
         'test-view': {
           templateUrl: 'templates/test-view.html',

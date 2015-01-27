@@ -7,7 +7,7 @@ starter.controller('uploadQuestionController', ['$scope', '$state', '$stateParam
         if($state.current.name === "tab.uploadSolution"){
           url = 'marketplace/dppSolution/uploadDppSolution';
         } 
-
+        $scope.appService.app.title = 'Home';
         var uploader = $scope.uploader = new FileUploader({
                  'url': url
               });

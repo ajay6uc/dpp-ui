@@ -1,8 +1,9 @@
 
-starter.controller('testController', ['$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'testService',  '$state', '$stateParams', '$cordovaDialogs',  function($ionicNavBarDelegate, $sce, $filter, $scope, testService,  $state, $stateParams, $cordovaDialogs){
+starter.controller('testController', ['$rootScope', '$ionicNavBarDelegate', '$sce', '$filter', '$scope', 'testService',  '$state', '$stateParams', '$cordovaDialogs',  function( $rootScope, $ionicNavBarDelegate, $sce, $filter, $scope, testService,  $state, $stateParams, $cordovaDialogs){
 
   $scope.conceptTest = {};
-  
+  //alert('coming here');
+  $rootScope.$broadcast('$viewHistory.historyChange', {'showBack' : true});
   $scope.conceptTest.getTestList = function(){
       testService.getTestList().$promise.then(function(testList) {
         $scope.conceptTest.testList = testList;

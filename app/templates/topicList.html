@@ -1,11 +1,10 @@
-
-<ion-view title="Topics">
- 
-  <ion-content>
+<ion-view title="Topics" >
+   <ion-content>
     <ion-nav-buttons side="primary">
-      <button class="button icon-left ion-home" ng-click="courseTopic.goBack()">Home</button>
-    </ion-nav-buttons>
-    <ion-list animation="slide-left-right">
+    <a class="button icon-left ion-ios7-arrow-left button-clear"  ng-click="courseTopic.goBack()"> </a>
+ </ion-nav-buttons>
+ 
+      <ion-list animation="slide-left-right">
       <ion-item class="card item-icon-left"  ng-repeat="topic in courseTopic.topicList" type="item-text-wrap" ui-sref="tab.concepts({topicId : topic.id})">
         {{topic.name}} 
       </ion-item>

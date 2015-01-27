@@ -3,6 +3,7 @@ starter.controller('conceptController', ['$rootScope', '$ionicNavBarDelegate', '
 
   $scope.courseConcept = {};
   $rootScope.showTabs = false;
+   $rootScope.$broadcast('$viewHistory.historyChange', {'showBack' : true});
   $scope.courseConcept.getConceptList = function(){
       conceptService.getConceptList().$promise.then(function(conceptList) {
         $scope.courseConcept.conceptList = conceptList;
