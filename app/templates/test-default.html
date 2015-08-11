@@ -1,11 +1,13 @@
 
 <ion-view title="Tests">
  
-  <ion-content >
-   
-      <ion-item class="card item-icon-left"   ui-sref="test.view({testId : test.id})">
-        {{test.name}} 
-      </ion-item>
-   
+  <ion-content overflow-scroll="true" scrollbar-y="true" >
+   	<ion-scroll direction="y">
+	     <ion-list animation="slide-left-right">
+	      <ion-item class="card item-icon-left"  ng-repeat="test in conceptTest.testList" type="item-text-wrap" ui-sref="test.view({testId : test.id})">
+	        {{test.name}} 
+	      </ion-item>
+	    </ion-list>
+ 	</ion-scroll>
   </ion-content>
 </ion-view>

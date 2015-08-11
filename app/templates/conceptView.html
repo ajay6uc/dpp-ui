@@ -1,5 +1,5 @@
 
-<ion-view title="StudyConcepts">
+<ion-view title="{{courseConcept.conceptToBeViwed.name}}">
    <ion-content>
     <!-- <div class="list card">
       
@@ -12,8 +12,8 @@
     </div>-->
      
       <div class="row">
-        <div class="col"><a class="button button-block button-energized" ui-sref="test.default({conceptId : 1})">Test</a></div>
-        <div class="col"><a class="button button-block button-energized" ui-sref="tab.practice({conceptId : 1})">Practice</a></div>
+        <div class="col"><a class="button button-block button-energized" ui-sref="test.default({conceptId : courseConcept.conceptToBeViwed.id})">Test</a></div>
+        <div class="col"><a class="button button-block button-energized" ui-sref="tab.practice({conceptId : courseConcept.conceptToBeViwed.id})">Practice</a></div>
       </div>
   
   </ion-content>

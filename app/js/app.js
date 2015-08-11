@@ -102,7 +102,7 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
       }
     })
     .state('tab.concepts', {
-        url: '/concepts',
+        url: '/topic/{topicId}/concepts',
         views: {
         'tab-topics': {
           templateUrl: 'templates/concepts.html',
@@ -186,8 +186,8 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
       abstract: true,
       templateUrl: 'templates/testViewTabs.html',
       controller: function($ionicNavBarDelegate, $scope, appService, $state) {
-        $scope.hasBackButton =true;
-        $ionicNavBarDelegate.showBackButton(true);
+        //$scope.hasBackButton =true;
+        //$ionicNavBarDelegate.showBackButton(true);
        
      }
 
@@ -205,7 +205,7 @@ var starter = angular.module('starter', ['ionic', 'ngResource', 'angularFileUplo
     .state('test.view', {
       url: '/testView/{testId}',
       views: {
-        'test-view': {
+        'test-default': {
           templateUrl: 'templates/test-view.html',
            controller: 'testController'
         }

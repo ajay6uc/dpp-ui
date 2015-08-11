@@ -18,8 +18,9 @@ starter.controller('conceptController', ['$rootScope', '$ionicNavBarDelegate', '
   }
 
 
-  if($state.current.name === "concept.view"){
+  if($state.current.name === "tab.conceptView"){
     var conceptId=$stateParams.conceptId;
+
     $scope.courseConcept.conceptToBeViwed = $filter('filter')(conceptService.conceptList, {'id': conceptId})[0];
 
   }
